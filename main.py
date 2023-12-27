@@ -1,8 +1,6 @@
 import time
 
-from paystackapi.paystack import Paystack
 from pypaystack import Transaction
-import requests
 
 transaction = Transaction(authorization_key='sk_test_a69fb6c099eddc6e238279709f21848d214f6d07')
 response = transaction.initialize(email='successabalaka2002@gmail.com', amount=20000)
