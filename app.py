@@ -28,9 +28,9 @@ def home():
     return render_template('funding.html', authorization_ready=authorization_ready)
 
 
-@app.route('/transaction/success/<trxref><reference>')
-def success(trxref):
-    ref_code = trxref
+@app.route('/transaction/success')
+def success():
+    ref_code = request.args.get('txref')
     transaction = Transaction(authorization_key=os.getenv(key='auth', default='sk_test_a69fb6c099eddc6e238279709f2'
                                                                               '1848d214f6d07'))
     verify = transaction.verify(reference=ref_code)
@@ -44,5 +44,5 @@ def success(trxref):
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
 # host='0.0.0.0', port=443
