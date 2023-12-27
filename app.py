@@ -31,6 +31,7 @@ def home():
 @app.route('/transaction/success')
 def success():
     ref_code = request.args.get('txref')
+    print(ref_code)
     transaction = Transaction(authorization_key=os.getenv(key='auth', default='sk_test_a69fb6c099eddc6e238279709f2'
                                                                               '1848d214f6d07'))
     verify = transaction.verify(reference=ref_code)
