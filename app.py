@@ -31,13 +31,13 @@ def home():
 @app.route('/transaction/success')
 def success():
     ref_code = request.args.get('trxref')
-    print(ref_code)
+    # print(ref_code)
     transaction = Transaction(authorization_key=os.getenv(key='auth', default='sk_test_a69fb6c099eddc6e238279709f2'
                                                                               '1848d214f6d07'))
     verify = transaction.verify(reference=ref_code)
     status = verify[3]['status']
     gateway_response = verify[3]['gateway_response']
-    print(status, gateway_response)
+    # print(status, gateway_response)
     if status == 'success':
         return render_template('success.html')
     else:
