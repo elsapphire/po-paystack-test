@@ -18,13 +18,15 @@
 <div class='title'>Bank Transfer</div>
 <form method='POST'>
 {% if authorization_ready %}
-    <input type="text" name='email' class='text' placeholder="{{email}}"></input>
-    <input type="text" name='amount' class='text2' placeholder="{{amount}}"></input>
+    <input type="text" name='email' class='text' value="{{email}}">
+    <input type="text" name='amount' class='text2' value="{{amount}}">
+    <input type="text" name='wallet_address' class='text2' value="{{wallet_address}}">
     <br>
     <button type="submit" class="sub"><a href='{{ auth_url }}'>Proceed To Checkout</a></button>
 {% else %}
-    <input type="text" name='email' class='text' placeholder="email"></input>
-    <input type="text" name='amount' class='text2' placeholder="amount"></input>
+    <input type="text" name='email' class='text' placeholder="email">
+    <input type="text" name='amount' class='text2' placeholder="amount">
+    <input type="text" name='wallet_address' class='text2' placeholder="Wallet Address">
     <br>
     <button type="submit" class="sub">Fund Wallet</button>
 {%endif%}

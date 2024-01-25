@@ -13,6 +13,7 @@ def home():
         email = request.form['email']
         form_amount = request.form['amount']
         amount = int(form_amount) * 100
+        wallet_address = request.form['wallet_address']
         # print(email, amount)
 
         transaction = Transaction(authorization_key=os.getenv(key='auth', default='sk_test_a69fb6c099eddc6e238279709f2'
@@ -24,7 +25,7 @@ def home():
         authorization_ready = True
 
         return render_template('funding.html', auth_url=authorization_url, authorization_ready=authorization_ready,
-                               email=email, amount=form_amount)
+                               email=email, amount=form_amount, wallet_address=wallet_address)
     return render_template('funding.html', authorization_ready=authorization_ready)
 
 
